@@ -9,15 +9,3 @@ class Productform(forms.ModelForm):
             'pcompra',
             'pventa',
         ]
-        widgets = {
-            'name': forms.TextInput(
-                attrs={
-                    'placeholder': 'Ingrese un nombre',
-                }
-            ),
-            'categoria': forms.TextInput(
-                attrs={
-                    'placeholder': 'Ingrese categoria',
-                }
-            ),
-        }
