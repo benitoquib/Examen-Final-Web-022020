@@ -1,6 +1,6 @@
 from django.forms import *
 
-from core.erp.models import Category
+from core.erp.models import Product
 
 
 class CategoryForm(ModelForm):
@@ -12,7 +12,7 @@ class CategoryForm(ModelForm):
         self.fields['name'].widget.attrs['autofocus'] = True
 
     class Meta:
-        model = Category
+        model = Product
         fields = '__all__'
         widgets = {
             'name': TextInput(
@@ -20,9 +20,9 @@ class CategoryForm(ModelForm):
                     'placeholder': 'Ingrese un nombre',
                 }
             ),
-            'desc': Textarea(
+            'descripcion': Textarea(
                 attrs={
-                    'placeholder': 'Ingrese un nombre',
+                    'placeholder': 'Ingrese una descripcion',
                     'rows': 3,
                     'cols': 3
                 }

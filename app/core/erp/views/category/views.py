@@ -7,19 +7,19 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.utils.decorators import method_decorator
 
 from core.erp.forms import CategoryForm
-from core.erp.models import Category
+from core.erp.models import Product
 
 
-def category_list(request):
+def product_list(request):
     data = {
-        'title': 'Listado de Categorías',
-        'categories': Category.objects.all()
+        'title': 'Producto Beneq',
+        'categories': Product.objects.all()
     }
     return render(request, 'category/list.html', data)
 
 
-class CategoryListView(ListView):
-    model = Category
+class ProductListView(ListView):
+    model = Product
     template_name = 'category/list.html'
 
     @method_decorator(csrf_exempt)
@@ -32,7 +32,7 @@ class CategoryListView(ListView):
             action = request.POST['action']
             if action == 'searchdata':
                 data = []
-                for i in Category.objects.all():
+                for i in Product.objects.all():
                     data.append(i.toJSON())
             else:
                 data['error'] = 'Ha ocurrido un error'
@@ -42,15 +42,15 @@ class CategoryListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Listado de Categorías'
+        context['title'] = 'Productos Beneq'
         context['create_url'] = reverse_lazy('erp:category_create')
         context['list_url'] = reverse_lazy('erp:category_list')
-        context['entity'] = 'Categorias'
+        context['entity'] = 'Productos'
         return context
 
 
-class CategoryCreateView(CreateView):
-    model = Category
+class ProductCreateView(CreateView):
+    model = Product
     form_class = CategoryForm
     template_name = 'category/create.html'
     success_url = reverse_lazy('erp:category_list')
@@ -80,15 +80,15 @@ class CategoryCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Creación una Categoria'
-        context['entity'] = 'Categorias'
+        context['title'] = 'Registrar un nuevo producto'
+        context['entity'] = 'Productos'
         context['list_url'] = reverse_lazy('erp:category_list')
         context['action'] = 'add'
         return context
 
 
-class CategoryUpdateView(UpdateView):
-    model = Category
+class ProductUpdateView(UpdateView):
+    model = Product
     form_class = CategoryForm
     template_name = 'category/create.html'
     success_url = reverse_lazy('erp:category_list')
@@ -112,15 +112,15 @@ class CategoryUpdateView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Edición una Categoria'
-        context['entity'] = 'Categorias'
+        context['title'] = 'Modificar un producto'
+        context['entity'] = 'Productos'
         context['list_url'] = reverse_lazy('erp:category_list')
         context['action'] = 'edit'
         return context
 
 
-class CategoryDeleteView(DeleteView):
-    model = Category
+class ProductDeleteView(DeleteView):
+    model = Product
     template_name = 'category/delete.html'
     success_url = reverse_lazy('erp:category_list')
 
@@ -139,7 +139,7 @@ class CategoryDeleteView(DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Eliminación de una Categoria'
-        context['entity'] = 'Categorias'
+        context['title'] = 'Borrar un producto'
+        context['entity'] = 'Productos'
         context['list_url'] = reverse_lazy('erp:category_list')
         return context
