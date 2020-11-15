@@ -1,4 +1,4 @@
-#!c:\users\benit\documents\django\examen-final-web-022020\env\scripts\python.exe
+#!c:\users\benit\documents\django\hades\env\scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
