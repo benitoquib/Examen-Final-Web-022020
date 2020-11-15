@@ -15,9 +15,9 @@ $(function () {
         columns: [
             {"data": "id"},
             {"data": "name"},
+            {"data": "desc"},
             {"data": "pcompra"},
             {"data": "pventa"},
-            {"data": "desc"},
             {"data": "desc"},
         ],
         columnDefs: [
