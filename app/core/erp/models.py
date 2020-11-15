@@ -22,7 +22,7 @@ from core.erp.choices import gender_choices
 
 class Product(models.Model):
     name = models.CharField(max_length=150, verbose_name='Nombre', unique=True)
-    descripcion = models.CharField(max_length=150, verbose_name='Descripcion')
+    desc = models.CharField(max_length=150, verbose_name='Descripcion')
     pcompra = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
     pventa = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
 

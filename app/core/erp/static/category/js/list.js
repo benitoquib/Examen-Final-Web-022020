@@ -17,8 +17,8 @@ $(function () {
             {"data": "name"},
             {"data": "pcompra"},
             {"data": "pventa"},
-            {"data": "descripcion"},
-            {"data": "descripcion"},
+            {"data": "desc"},
+            {"data": "desc"},
         ],
         columnDefs: [
             {

@@ -20,7 +20,7 @@ class CategoryForm(ModelForm):
                     'placeholder': 'Ingrese un nombre',
                 }
             ),
-            'descripcion': Textarea(
+            'desc': Textarea(
                 attrs={
                     'placeholder': 'Ingrese una descripcion',
                     'rows': 3,
